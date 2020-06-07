@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ThemeProvider } from 'theme-ui';
+import RouteLayout from 'components/RouteLayout';
+import End from 'components/End';
+import theme from './theme';
+import pages from './pages';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        {pages.map((Component, i) => {
+          const path = i === 0 ? '/' : `/${i}`;
+
+          return (
+            <RouteLayout key={i} exact path={path}>
+              <Component />
+            </RouteLayout>
+          );
+        })}
+        <RouteLayout>
+          <End />
+        </RouteLayout>
+      </Router>
+    </ThemeProvider>
   );
 }
 
