@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
 
 export default function CounterRequirements() {
   return (
-    <Fragment>
+    <div sx={{ mb: 5}}>
       <h1>Componente Contador</h1>
       <ul>
         <li>Valores inteiros maiores que zero.</li>
@@ -10,6 +11,6 @@ export default function CounterRequirements() {
         <li>Entrada de valor pelo usuário.</li>
         <li>Botões de incrementar, decrementar e reiniciar</li>
       </ul>
-    </Fragment>
+    </div>
   );
 }

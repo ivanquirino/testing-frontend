@@ -3,12 +3,13 @@ import { Route } from 'react-router-dom';
 import { Container } from 'theme-ui';
 import styled from '@emotion/styled';
 import Nav from 'components/Navigation';
+import pages from '../pages';
 
 function RouteLayout({ children, ...props }) {
   return (
     <Route {...props}>
       <SlideContainer mt={3} mb={3} p={3}>
-        <Nav />
+        <Nav pages={pages} />
         {children}
       </SlideContainer>
     </Route>

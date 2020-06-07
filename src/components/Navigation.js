@@ -2,9 +2,8 @@
 import { jsx } from 'theme-ui';
 import { Button, Flex } from 'theme-ui';
 import { Link, useLocation, matchPath } from 'react-router-dom';
-import pages from '../pages';
 
-function Navigation({ to }) {
+function Navigation({ pages = []}) {
   const location = useLocation();
   const { pathname } = location;
 

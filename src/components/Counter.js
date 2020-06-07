@@ -1,14 +1,15 @@
 /** @jsx jsx */
 import { Fragment, useState } from 'react';
-import { jsx, Input, Button, Label, Flex, Heading } from 'theme-ui';
+import { jsx, Input, Button, Label, Flex } from 'theme-ui';
 import refresh from 'images/refresh-ccw.svg';
+import CounterRequirements from './CounterRequirements';
 
 const DEFAULT_INITIAL_VALUE = 0;
 
 function Counter({ initialValue = DEFAULT_INITIAL_VALUE }) {
   let initialInt = parseInt(initialValue, 10);
   initialInt = initialInt >= 0 ? initialInt : 0;
-    
+
   const [input, setInput] = useState(initialInt);
   const [, setCounter] = useState(initialInt);
 
@@ -45,9 +46,7 @@ function Counter({ initialValue = DEFAULT_INITIAL_VALUE }) {
 
   return (
     <Fragment>
-      <Heading as="h1" sx={{ mb: 4 }}>
-        Contador
-      </Heading>
+      <CounterRequirements />
 
       <Label htmlFor="counter">Contador</Label>
       <Input
@@ -65,7 +64,14 @@ function Counter({ initialValue = DEFAULT_INITIAL_VALUE }) {
 
         <Button onClick={handleIncrement}>Incrementa</Button>
 
-        <Button onClick={handleReset} variant="reset" title="Reset Button" data-testid="reset-button"><img src={refresh} alt="" /></Button>
+        <Button
+          onClick={handleReset}
+          variant="reset"
+          title="Reset Button"
+          data-testid="reset-button"
+        >
+          <img src={refresh} alt="" />
+        </Button>
       </Flex>
     </Fragment>
   );
