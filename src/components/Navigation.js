@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
+import React from 'react';
 import { Button, Flex } from 'theme-ui';
 import { Link, useLocation, matchPath } from 'react-router-dom';
 
@@ -20,7 +19,7 @@ function Navigation({ pages = []}) {
   const start = page === 0;
 
   return (
-    <Flex sx={{ justifyContent: 'space-between', mb: 4 }}>
+    <Flex sx={{ justifyContent: 'space-between' }}>
       <div>
         {!start && (
           <Link to={toPrevious}>

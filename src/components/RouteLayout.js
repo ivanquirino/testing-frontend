@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
 import { Route } from 'react-router-dom';
 import { Container } from 'theme-ui';
 import styled from '@emotion/styled';
@@ -10,7 +11,7 @@ function RouteLayout({ children, ...props }) {
     <Route {...props}>
       <SlideContainer mt={3} mb={3} p={3}>
         <Nav pages={pages} />
-        {children}
+        <div sx={{ p: 5}}>{children}</div>
       </SlideContainer>
     </Route>
   );
